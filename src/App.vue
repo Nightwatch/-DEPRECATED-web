@@ -6,7 +6,7 @@
       clipped
       app
     >
-  
+
     </v-navigation-drawer>
     <v-toolbar
       color="deep-purple"
@@ -45,8 +45,9 @@
 <script>
 import axios from 'axios'
 import * as btoa from 'btoa'
+import * as fs from 'fs'
 
-const config = require('../config.json')
+const config = require('../settings.json')
 
 const CLIENT_ID = config.CLIENT_ID
 const CLIENT_SECRET = config.CLIENT_SECRET
