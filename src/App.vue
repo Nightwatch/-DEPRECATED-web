@@ -44,14 +44,11 @@
 
 <script>
 import axios from 'axios'
-import * as btoa from 'btoa'
-import * as fs from 'fs'
 
 const config = require('../settings.json')
 
 const CLIENT_ID = config.CLIENT_ID
-const CLIENT_SECRET = config.CLIENT_SECRET
-const redirect = encodeURIComponent('http://localhost:8080')
+const redirect = encodeURIComponent('https://natsuki.tk')
 
 export default {
   name: 'App',
@@ -89,10 +86,10 @@ export default {
       this.code = null
     },
     async fetchToken () {
-      const creds = btoa(`${CLIENT_ID}:${CLIENT_SECRET}`)
-      const response = await axios.post(`https://discordapp.com/api/oauth2/token?grant_type=authorization_code&code=${this.code}&redirect_uri=${redirect}`, null, {headers: {Authorization: `Basic ${creds}`}})
+      const response = await axios.get(`https://natsuki.tk/api/auth/token/discord?code=${this.code}&redirect=${redirect}`)
 
       const json = response.data
+
       this.accessToken = json.access_token
       this.authenticated = true
 
@@ -105,7 +102,7 @@ export default {
       const json = response.data
       this.user = json
       window.localStorage.setItem('user', JSON.stringify(this.user))
-      window.location = 'http://localhost:8080'
+      window.location = 'https://natsuki.tk'
     }
   }
 }
