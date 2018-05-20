@@ -1,3 +1,4 @@
 {
-  "CLIENT_ID": ""
+  "CLIENT_ID": "",
+  "REDIRECT": "http://localhost:8080"
 }
