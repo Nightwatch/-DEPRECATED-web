@@ -5,21 +5,20 @@
     fixed
     clipped-left
     app>
-    <v-toolbar-side-icon v-if="auth.authenticated" @click="toggleSideMenu"></v-toolbar-side-icon>
+    <v-toolbar-side-icon @click="toggleSideMenu"></v-toolbar-side-icon>
     <v-toolbar-title class="mr-5 align-center">
-      <span class="title">Natsuki</span>
+      <span class="title hidden-sm-and-down">Natsuki</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-layout row align-center style="max-width: 650px;"></v-layout>
-    <v-icon v-if="auth.user">fal fa-user</v-icon>
-    <v-avatar size="150" v-if="auth.user">Hello, {{ auth.user.username }}</v-avatar>
-    <v-btn outline href="https://natsuki.tk/invite" target="_blank">
+    <v-icon v-if="auth.user" class="hidden-sm-and-down">fal fa-user</v-icon>
+    <v-avatar size="150" v-if="auth.user" class="hidden-sm-and-down">Hello, {{ auth.user.username }}</v-avatar>
+    <v-btn flat href="https://natsuki.tk/invite" target="_blank">
       Invite
     </v-btn>
-    <v-btn outline v-if="!auth.authenticated" @click="login">
+    <v-btn flat v-if="!auth.authenticated" @click="login">
       Login
     </v-btn>
-    <v-btn outline v-if="auth.authenticated" @click="logout">
+    <v-btn flat v-if="auth.authenticated" @click="logout">
       Logout
     </v-btn>
   </v-toolbar>

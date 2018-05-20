@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-if="auth.authenticated"
+  <v-navigation-drawer
       v-model="site.sideMenuActive"
       fixed
       clipped

@@ -3,7 +3,7 @@ export default {
     name: 'Natsuki Dashboard',
     url: '',
     description: 'Web interface for the Natsuki Discord bot.',
-    sideMenuActive: false
+    sideMenuActive: window.innerWidth >= 1000
   },
   mutations: {
     setSite(state, data) {
